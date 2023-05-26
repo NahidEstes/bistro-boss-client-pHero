@@ -1,6 +1,7 @@
 import "./App.css";
 import Banner from "./Pages/Home/Banner/Banner";
 import Category from "./Pages/Home/Category/Category";
+import Featured from "./Pages/Home/Featured/Featured";
 import PopularMenu from "./Pages/Home/PopularMenu/PopularMenu";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Banner />
       <Category />
       <PopularMenu />
+      <Featured />
     </>
   );
 }
