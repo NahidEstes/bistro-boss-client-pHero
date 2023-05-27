@@ -23,7 +23,9 @@ const Featured = () => {
             magnam nostrum! Ut eum dignissimos culpa doloremque eligendi
             consectetur blanditiis laboriosam fugiat ea quia similique quam nisi
             reprehenderit numquam magnam nemo vitae cupiditate, atque maiores
-            dicta minus pariatur. Perspiciatis nobis vero quas?
+            dicta minus pariatur. Perspiciatis nobis vero quas? Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Ea in quod aliquam
+            velit odit perferendis eaque. Voluptatum velit molestias blanditiis.
           </p>
           <button className="btn btn-outline border-0 border-b-4 mt-4">
             Order Now
