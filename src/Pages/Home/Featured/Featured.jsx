@@ -16,7 +16,7 @@ const Featured = () => {
         </div>
         <div className="md:ml-10">
           <p>Aug 20, 2029</p>
-          <p className="uppercase">Where can i get some?</p>
+          <p className="uppercase">Where can I get some?</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
             expedita hic dolorem, iusto vel suscipit nam excepturi debitis
