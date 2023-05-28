@@ -29,12 +29,12 @@ const Menu = () => {
       {/* <Cover items={desserts} title="Desserts" img={dessertImg} /> */}
       <MenuCategory
         items={desserts}
-        title="Desserts"
+        title="desserts"
         img={dessertImg}
       ></MenuCategory>
 
-      <MenuCategory items={pizza} title="Pizza" img={pizzaImg}></MenuCategory>
-      <MenuCategory items={salad} title="Salad" img={saladImg}></MenuCategory>
+      <MenuCategory items={pizza} title="pizza" img={pizzaImg}></MenuCategory>
+      <MenuCategory items={salad} title="salad" img={saladImg}></MenuCategory>
       {/* <MenuCategory items={pizza} title="Pizza" img={pizzaImg}></MenuCategory> */}
 
       {/* <SectionTitle subHeading="Don't miss" heading="Todays Offer" />
