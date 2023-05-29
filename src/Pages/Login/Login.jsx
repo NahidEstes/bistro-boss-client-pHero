@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
+
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -6,6 +7,7 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -25,6 +27,7 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      Swal.fire("Good job!", "SignIn Successfully!", "success");
     });
   };
 
