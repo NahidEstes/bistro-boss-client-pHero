@@ -6,7 +6,9 @@ function App() {
   const location = useLocation();
   console.log(location);
 
-  const noHeaderLocation = location.pathname.includes("login");
+  const noHeaderLocation =
+    location.pathname.includes("login") ||
+    location.pathname.includes("register");
 
   return (
     <>
