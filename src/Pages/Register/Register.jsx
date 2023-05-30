@@ -2,8 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -14,9 +19,15 @@ const Register = () => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       console.log(result.user);
+      updateUserProfile(data.name, data.photoURL)
+        .then(() => {
+          console.log("user profile info update");
+          Swal.fire("Registered!", "Register Successfully!", "success");
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
     });
   };
-  const { createUser } = useContext(AuthContext);
 
   return (
     <>
@@ -48,6 +59,23 @@ const Register = () => {
                 />
                 {errors.name && (
                   <span className="text-red-600">This field is required</span>
+                )}
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="text"
+                  {...register("photoURL", { required: true })}
+                  placeholder="Photo URL"
+                  className="input input-bordered"
+                />
+                {errors.photoURL && (
+                  <span className="text-red-600">
+                    Photo URL field is required
+                  </span>
                 )}
               </div>
 
