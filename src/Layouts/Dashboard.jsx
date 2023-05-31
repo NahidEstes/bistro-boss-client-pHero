@@ -15,7 +15,9 @@ const Dashboard = () => {
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
-        ></label>
+        >
+          Open
+        </label>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -43,7 +45,6 @@ const Dashboard = () => {
               My Cart
             </NavLink>
           </li>
-
           <div className="divider"></div>
           <li>
             <NavLink to="/">
