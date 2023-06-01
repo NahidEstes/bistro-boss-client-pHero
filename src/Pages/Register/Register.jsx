@@ -21,9 +21,22 @@ const Register = () => {
       console.log(result.user);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info update");
-          Swal.fire("Registered!", "Register Successfully!", "success");
-          navigate("/");
+          const savedUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(savedUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                console.log("user profile info update");
+                Swal.fire("Registered!", "Register Successfully!", "success");
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
