@@ -9,7 +9,7 @@ const useMenu = () => {
       .then((res) => res.json())
       .then((data) => {
         setMenu(data);
-        console.log("json:", data);
+        // console.log("json:", data);
         // setLoading(false);
       });
   }, []);
