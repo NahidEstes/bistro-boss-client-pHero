@@ -1,12 +1,14 @@
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const image_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddItem = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { register, handleSubmit, reset } = useForm();
-  const img_hosting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${image_hosting_token}`;
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_hosting_token}`;
   console.log(image_hosting_token);
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -17,7 +19,22 @@ const AddItem = () => {
     })
       .then((res) => res.json())
       .then((imgResponse) => {
-        console.log(imgResponse);
+        if (imgResponse.success) {
+          const imgUrl = imgResponse.data.display_url;
+
+          const { name, price, category, recipe } = data;
+          const newItem = {
+            name,
+            price: parseFloat(price),
+            category,
+            recipe,
+            image: imgUrl,
+          };
+          console.log(newItem);
+          axiosSecure.post("/menu", newItem).then((data) => {
+            console.log("after posting new menu item", data.data);
+          });
+        }
       });
   };
   return (
