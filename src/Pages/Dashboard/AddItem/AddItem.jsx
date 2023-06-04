@@ -26,13 +26,23 @@ const AddItem = () => {
           const newItem = {
             name,
             price: parseFloat(price),
-            category,
+            category: category.toLowerCase(),
             recipe,
             image: imgUrl,
           };
           console.log(newItem);
           axiosSecure.post("/menu", newItem).then((data) => {
             console.log("after posting new menu item", data.data);
+            if (data.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Item added successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
           });
         }
       });
