@@ -109,7 +109,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <input
-                disabled={disabled}
+                disabled={false}
                 type="submit"
                 name="submit"
                 value="login"
